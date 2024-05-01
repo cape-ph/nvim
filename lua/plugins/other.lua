@@ -8,6 +8,28 @@ return {
       })
     end,
   },
+  -- set up header
+  {
+    "alpha-nvim",
+    opts = function(_, opts)
+      opts.section.header.val = {
+        " ██████  █████  ██████  ███████",
+        "██      ██   ██ ██   ██ ██",
+        "██      ███████ ██████  █████",
+        "██      ██   ██ ██      ██",
+        " ██████ ██   ██ ██      ███████",
+        " ",
+        "███    ██ ██    ██ ██ ███    ███",
+        "████   ██ ██    ██ ██ ████  ████",
+        "██ ██  ██ ██    ██ ██ ██ ████ ██",
+        "██  ██ ██  ██  ██  ██ ██  ██  ██",
+        "██   ████   ████   ██ ██      ██",
+      }
+      local leader = ({ [""] = "\\", [" "] = "<Space>" })[vim.g.mapleader] or vim.g.mapleader or "\\"
+      opts.section.footer.val = { "When in doubt, press " .. leader }
+    end,
+    config = function(_, opts) require("alpha").setup(opts.config) end,
+  },
   -- disable right most mode indicator
   { "heirline.nvim", opts = function(_, opts) opts.statusline[#opts.statusline] = nil end },
   -- disabled plugins
