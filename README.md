@@ -10,11 +10,12 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
 - [A Nerd Font](https://www.nerdfonts.com/)
 - [A Terminal with true color support](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices)<sup>[[2]](#2)</sup>
 - Requirements to install tools (must be in `$PATH`):
-  - `curl` - Mason in general
-  - `pip` - `isort`, `black`, `pyright`, `debugpy`
-  - `npm` - `prettier`, `json-language-server`, `yaml-language-server`
-  - `go` - `regols`
-  - `opa` (_optional_) - `opa_check`
+  - [`curl`](https://curl.se/) - Used by Mason in general to download files
+  - [`pip`](https://pip.pypa.io/en/stable/) - `isort`, `black`, `pyright`, `debugpy`
+  - [`npm`](https://www.npmjs.com/) - `prettier`, `json-language-server`, `yaml-language-server`
+  - [`go`](https://go.dev/) - `regols`
+  - [`opa`](https://www.openpolicyagent.org/) (_optional_) - `opa_check`
+  - [`ripgrep`](https://github.com/BurntSushi/ripgrep) (_optional_) - live grep telescope search (`<leader>fw`)
 
 > [!NOTE] > <sup id="2">[2]</sup> Note when using default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezfurlong.org/wezterm/), or another [terminal emulator](https://gist.github.com/XVilka/8346728#terminal-emulators) that has true color support.
 
@@ -39,3 +40,13 @@ NVIM_APPNAME=cape nvim
 > export NVIM_APPNAME=cape
 > nvim
 > ```
+
+### 🐳 Test in Docker
+
+```sh
+docker run -w /root -it --rm alpine:edge sh -uelic '
+  apk add bash curl git npm python3 go neovim ripgrep alpine-sdk --update
+  git clone --depth 1 https://github.com/cape-ph/nvim ~/.config/nvim
+  nvim
+'
+```
