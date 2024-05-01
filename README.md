@@ -15,7 +15,6 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
   - [`npm`](https://www.npmjs.com/) - `prettier`, `json-language-server`, `yaml-language-server`
   - [`go`](https://go.dev/) - `regols`
   - [`opa`](https://www.openpolicyagent.org/) (_optional_) - `opa_check`
-  - [`rg`](https://github.com/BurntSushi/ripgrep) (_optional_) - live grep telescope search (`<leader>fw`)
 
 [^1]: Note when using default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezfurlong.org/wezterm/), or another [terminal emulator](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices) that has true color support.
 
@@ -45,7 +44,7 @@ NVIM_APPNAME=cape nvim
 
 ```sh
 docker run -w /root -it --rm alpine:edge sh -uelic '
-  apk add bash curl git npm python3 go neovim ripgrep alpine-sdk --update
+  apk add bash curl git npm python3 go neovim alpine-sdk --update
   git clone --depth 1 https://github.com/cape-ph/nvim ~/.config/nvim
   nvim
 '
