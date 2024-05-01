@@ -8,7 +8,7 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
 - [Git v2.19.0+](https://git-scm.com/)
 - A C compiler in your path and `libstdc++` installed (Ex. `gcc`, `clang`, `zig`, [Windows users please read this!](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support))
 - [A Nerd Font](https://www.nerdfonts.com/)
-- [A Terminal with true color support](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices)<sup>[[2]](#2)</sup>
+- [A Terminal with true color support](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices)[^1]
 - Requirements to install tools (must be in `$PATH`):
   - [`curl`](https://curl.se/) - Used by Mason in general to download files
   - [`pip`](https://pip.pypa.io/en/stable/) - `isort`, `black`, `pyright`, `debugpy`
@@ -17,7 +17,7 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
   - [`opa`](https://www.openpolicyagent.org/) (_optional_) - `opa_check`
   - [`ripgrep`](https://github.com/BurntSushi/ripgrep) (_optional_) - live grep telescope search (`<leader>fw`)
 
-> [!NOTE] > <sup id="2">[2]</sup> Note when using default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezfurlong.org/wezterm/), or another [terminal emulator](https://gist.github.com/XVilka/8346728#terminal-emulators) that has true color support.
+[^1]: Note when using default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezfurlong.org/wezterm/), or another [terminal emulator](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices) that has true color support.
 
 ## 🛠️ Usage (Unix/Mac Instructions)
 
