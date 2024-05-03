@@ -30,8 +30,19 @@ return {
     end,
     config = function(_, opts) require("alpha").setup(opts.config) end,
   },
-  -- disable right most mode indicator
-  { "heirline.nvim", opts = function(_, opts) opts.statusline[#opts.statusline] = nil end },
+  -- setup custom left only mode text indicator
+  {
+    "heirline.nvim",
+    opts = function(_, opts)
+      local status = require "astroui.status"
+      opts.statusline[1] = status.component.mode {
+        mode_text = { padding = { left = 1 } },
+        hl = { bold = true },
+        surround = { separator = { "", " " } },
+      } -- add the mode text with custom separator and bold highlighting
+      opts.statusline[#opts.statusline] = nil -- remove right mode indicator
+    end,
+  },
   -- disabled plugins
   { "indent-blankline.nvim", enabled = false }, -- indentation levels
   { "better-escape.nvim", enabled = false }, -- disable `jk` and `jj` for escape
