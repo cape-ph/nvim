@@ -12,7 +12,7 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
 - Requirements to install tools (must be in `$PATH`):
   - [`curl`](https://curl.se/) - Used by Mason in general to download files
   - [`pip`](https://pip.pypa.io/en/stable/) - `isort`, `black`, `pyright`, `debugpy`, `sqlfluff`
-  - [`npm`](https://www.npmjs.com/) - `prettier`, `json-language-server`, `yaml-language-server`
+  - [`npm`](https://www.npmjs.com/) - `prettier`, `json-language-server`, `yaml-language-server`, `bash-language-server`
   - [`go`](https://go.dev/) - `regols`
   - [`opa`](https://www.openpolicyagent.org/) (_optional_) - `opa_check`
 
