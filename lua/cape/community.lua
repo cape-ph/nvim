@@ -12,6 +12,9 @@ return {
   -- Add conform.nvim for more stable linting
   { import = "astrocommunity.lsp.nvim-lint" },
 
+  -- Use VS Code Icons
+  { import = "astrocommunity.recipes.vscode-icons" },
+
   -- Show relative path in winbar
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
 
