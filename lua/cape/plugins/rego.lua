@@ -28,13 +28,4 @@ return {
       },
     },
   },
-  { -- HACK: needed until regols is added upstream for auto-detection
-    -- https://github.com/williamboman/mason-lspconfig.nvim/pull/403
-    "astrolsp",
-    ---@param opts AstroLSPOpts
-    opts = function(_, opts)
-      if not opts.servers then opts.servers = {} end
-      table.insert(opts.servers, "regols")
-    end,
-  },
 }
