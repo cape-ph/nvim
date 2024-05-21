@@ -76,6 +76,13 @@ return {
             if not c.settings.python then c.settings.python = {} end
             c.settings.python.pythonPath = vim.fn.exepath "python"
           end,
+          settings = {
+            python = {
+              analysis = {
+                typeCheckingMode = "off", -- disable typechecking as it's not super great
+              },
+            },
+          },
         },
       },
     },
