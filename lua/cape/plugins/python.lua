@@ -79,7 +79,15 @@ return {
           settings = {
             python = {
               analysis = {
-                typeCheckingMode = "off", -- disable typechecking as it's not super great
+                diagnosticSeverityOverrides = {
+                  reportUnusedImport = "information",
+                  reportUnusedFunction = "information",
+                  reportUnusedVariable = "information",
+                  reportGeneralTypeIssues = "none",
+                  reportOptionalMemberAccess = "none",
+                  reportOptionalSubscript = "none",
+                  reportPrivateImportUsage = "none",
+                },
               },
             },
           },
