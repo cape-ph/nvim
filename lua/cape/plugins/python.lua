@@ -46,17 +46,6 @@ return {
           },
         },
       },
-      { -- make virutal environment clickable to change
-        "heirline.nvim",
-        opts = function(_, opts)
-          opts.statusline[10] = require("astroui.status").component.virtual_env {
-            on_click = {
-              name = "heirline_virtual_env",
-              callback = function() vim.schedule(vim.cmd.VenvSelect) end,
-            },
-          }
-        end,
-      },
     },
     opts = {
       name = { "env", ".env", "venv", ".venv" },
