@@ -34,7 +34,8 @@ return {
   },
   { -- Tool to change virtual environments
     "linux-cultist/venv-selector.nvim",
-    cmd = { "VenvSelect", "VenvSelectCached" },
+    branch = "regexp",
+    cmd = "VenvSelect",
     dependencies = {
       {
         "astrocore",
