@@ -20,6 +20,14 @@ return {
       })
     end,
   },
+  { -- Formatters to use
+    "conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        toml = { "taplo" },
+      },
+    },
+  },
   {
     "astrolsp",
     ---@type AstroLSPOpts
