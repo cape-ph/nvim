@@ -32,6 +32,14 @@ return {
       },
     },
   },
+  { -- Unit testing
+    "neotest",
+    dependencies = { "nvim-neotest/neotest-python" },
+    opts = function(_, opts)
+      if not opts.adapters then opts.adapters = {} end
+      table.insert(opts.adapters, require "neotest-python"(require("astrocore").plugin_opts "neotest-python"))
+    end,
+  },
   { -- Tool to change virtual environments
     "linux-cultist/venv-selector.nvim",
     branch = "regexp",

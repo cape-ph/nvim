@@ -12,6 +12,9 @@ return {
   -- Add conform.nvim for more stable linting
   { import = "astrocommunity.lsp.nvim-lint" },
 
+  -- Add neotest for more unit testing
+  { import = "astrocommunity.test.neotest" },
+
   -- Use VS Code Icons
   { import = "astrocommunity.recipes.vscode-icons" },
 
