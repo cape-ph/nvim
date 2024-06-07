@@ -6,11 +6,19 @@
 return {
   { -- Treesitter parsers to be installed
     "nvim-treesitter",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "sql" }) end,
+    opts = {
+      ensure_installed = {
+        "sql",
+      },
+    },
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "sqlfluff" }) end,
+    opts = {
+      ensure_installed = {
+        "sqlfluff",
+      },
+    },
   },
   { -- Formatters to use
     "conform.nvim",

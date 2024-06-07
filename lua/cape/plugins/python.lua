@@ -7,22 +7,22 @@
 return {
   { -- Treesitter parsers to be installed
     "nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
         "python",
-      })
-    end,
+      },
+    },
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
         "pyright",
         "black",
         "isort",
         "debugpy",
-      })
-    end,
+      },
+    },
   },
   { -- Formatters to use
     "conform.nvim",
