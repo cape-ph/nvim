@@ -5,7 +5,6 @@ return {
     opts = {
       ensure_installed = {
         "tree-sitter-cli", -- tree-sitter-cli for installing parsers automatically
-        "typos-lsp", -- code spell checker
       },
     },
   },
