@@ -29,6 +29,13 @@ return {
       formatters_by_ft = {
         markdown = { "prettier" },
       },
+      formatters = {
+        prettier = {
+          options = {
+            ft_parsers = { markdown = "markdown" },
+          },
+        },
+      },
     },
   },
   {
