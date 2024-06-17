@@ -1,6 +1,14 @@
 ---@type LazySpec
 return {
   {
+    "conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        ["*"] = { "injected" },
+      },
+    },
+  },
+  {
     "mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
