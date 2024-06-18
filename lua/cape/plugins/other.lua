@@ -16,6 +16,14 @@ return {
       },
     },
   },
+  {
+    "astrolsp",
+    opts = {
+      config = {
+        typos_lsp = { single_file_support = false },
+      },
+    },
+  },
   -- set up header
   {
     "alpha-nvim",
