@@ -24,6 +24,36 @@ return {
       },
     },
   },
+  { -- add some sane missing text objects
+    "astrocore",
+    opts = function(_, opts)
+      -- add line text object
+      for lhs, rhs in pairs {
+        il = { ":<C-u>normal! $v^<CR>", desc = "inside line" },
+        al = { ":<C-u>normal! V<CR>", desc = "around line" },
+      } do
+        opts.mappings.o[lhs] = rhs
+        opts.mappings.x[lhs] = rhs
+      end
+
+      -- add missing in between and around two character pairs
+      for _, char in ipairs { "_", "-", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
+        for lhs, rhs in pairs {
+          ["i" .. char] = {
+            (":<C-u>silent! normal! f%sF%slvt%s<CR>"):format(char, char, char),
+            desc = "inside " .. char,
+          },
+          ["a" .. char] = {
+            (":<C-u>silent! normal! f%sF%svf%s<CR>"):format(char, char, char),
+            desc = "around " .. char,
+          },
+        } do
+          opts.mappings.o[lhs] = rhs
+          opts.mappings.x[lhs] = rhs
+        end
+      end
+    end,
+  },
   -- disable netrw hijacking of neo-tree
   { "neo-tree.nvim", opts = { filesystem = { hijack_netrw_behavior = "disabled" } } },
   -- setup oil file manager
