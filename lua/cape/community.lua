@@ -12,6 +12,30 @@ return {
   -- Add conform.nvim for more stable linting
   { import = "astrocommunity.lsp.nvim-lint" },
 
+  -- Add rainbow-delimiters.nvim for highlighting matching pairs of characters
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+
+  -- Add nvim-bqf to improve the quickfix menu
+  { import = "astrocommunity.debugging.nvim-bqf" },
+
+  -- Add vim-sandwich operator for manipulating surrounding characters
+  { import = "astrocommunity.syntax.vim-sandwich" },
+
+  -- Add nvim-highlight-colors for better color highlighting
+  { import = "astrocommunity.color.nvim-highlight-colors" },
+
+  -- Add nvim-spectre for good search/replace
+  { import = "astrocommunity.project.nvim-spectre" },
+
+  -- Add vim-matchup for better % motion
+  { import = "astrocommunity.motion.vim-matchup" },
+
+  -- Add neogen for docstring generation
+  { import = "astrocommunity.editing-support.neogen" },
+
+  -- Add indent-tools.nvim for indent text object
+  { import = "astrocommunity.indent.indent-tools-nvim" },
+
   -- Add neotest for more unit testing
   { import = "astrocommunity.test.neotest" },
 
