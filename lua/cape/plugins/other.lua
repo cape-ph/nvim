@@ -24,6 +24,56 @@ return {
       },
     },
   },
+  -- disable netrw hijacking of neo-tree
+  { "neo-tree.nvim", opts = { filesystem = { hijack_netrw_behavior = "disabled" } } },
+  -- setup oil file manager
+  {
+    "oil.nvim",
+    init = function() -- start oil on startup lazily if necessary
+      if vim.fn.argc() == 1 then
+        local arg = vim.fn.argv(0)
+        ---@cast arg string
+        local stat = vim.loop.fs_stat(arg)
+        local adapter = string.match(arg, "^([%l-]*)://")
+        if (stat and stat.type == "directory") or adapter == "oil-ssh" then require "oil" end
+      end
+    end,
+    dependencies = {
+      "astrocore",
+      opts = {
+        autocmds = {
+          -- start oil when editing a directory
+          neotree_start = false,
+          oil_start = {
+            {
+              event = "BufNew",
+              desc = "start oil when editing a directory",
+              callback = function()
+                if package.loaded["oil"] then
+                  vim.api.nvim_del_augroup_by_name "oil_start"
+                elseif vim.fn.isdirectory(vim.fn.expand "<afile>") == 1 then
+                  require("lazy").load { plugins = { "oil.nvim" } }
+                  vim.api.nvim_del_augroup_by_name "oil_start"
+                end
+              end,
+            },
+          },
+        },
+        mappings = {
+          n = {
+            ["<Tab>"] = { "<Cmd>Oil<CR>", desc = "Oil Filebrowser" },
+          },
+        },
+      },
+    },
+    opts = {
+      skip_confirm_for_simple_edits = true,
+      experimental_watch_for_changes = true,
+      keymaps = {
+        ["<Tab>"] = "actions.close",
+      },
+    },
+  },
   -- set up header
   {
     "alpha-nvim",

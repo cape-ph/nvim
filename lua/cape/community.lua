@@ -23,4 +23,7 @@ return {
 
   -- Allow playing nicely with neovim vscode extension
   { import = "astrocommunity.recipes.vscode" },
+
+  -- Add oil.nvim for more vim-like file management
+  { import = "astrocommunity.file-explorer.oil-nvim" },
 }
