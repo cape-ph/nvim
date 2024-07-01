@@ -39,6 +39,9 @@ return {
   -- Add neotest for more unit testing
   { import = "astrocommunity.test.neotest" },
 
+  -- Add oversser for code execution
+  { import = "astrocommunity.code-runner.overseer-nvim" },
+
   -- Use VS Code Icons
   { import = "astrocommunity.recipes.vscode-icons" },
 
