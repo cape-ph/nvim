@@ -42,6 +42,9 @@ return {
   -- Add oversser for code execution
   { import = "astrocommunity.code-runner.overseer-nvim" },
 
+  -- Add git commit completion when editing commit messages
+  { import = "astrocommunity.completion.cmp-git" },
+
   -- Use VS Code Icons
   { import = "astrocommunity.recipes.vscode-icons" },
 
