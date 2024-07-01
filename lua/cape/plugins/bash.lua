@@ -17,7 +17,7 @@ return {
     opts = {
       ensure_installed = {
         "bash-language-server",
-        "shellcheck",
+        "shellcheck", -- used by bash language server
         "shfmt",
         "bash-debug-adapter",
       },
@@ -28,14 +28,6 @@ return {
     opts = {
       formatters_by_ft = {
         sh = { "shfmt" },
-      },
-    },
-  },
-  { -- Linters to use
-    "nvim-lint",
-    opts = {
-      linters_by_ft = {
-        sh = { "shellcheck" },
       },
     },
   },
