@@ -4,6 +4,17 @@
 
 ---@type LazySpec
 return {
+  {
+    "astrocore",
+    ---@type AstroCoreOpts
+    opts = {
+      filetypes = {
+        pattern = {
+          ["%.env%.[%w_.-]+"] = "sh",
+        },
+      },
+    },
+  },
   { -- Treesitter parsers to be installed
     "nvim-treesitter",
     opts = {
