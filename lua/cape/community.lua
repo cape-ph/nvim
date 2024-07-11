@@ -24,6 +24,9 @@ return {
   -- Add nvim-highlight-colors for better color highlighting
   { import = "astrocommunity.color.nvim-highlight-colors" },
 
+  -- Add mini.icons for better icon support
+  { import = "astrocommunity.icon.mini-icons" },
+
   -- Add nvim-spectre for good search/replace
   { import = "astrocommunity.project.nvim-spectre" },
 

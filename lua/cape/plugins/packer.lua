@@ -31,4 +31,13 @@ return {
       },
     },
   },
+  -- icons
+  {
+    "mini.icons",
+    opts = {
+      filetype = {
+        ["hcl.packer"] = { glyph = "", hl = "MiniIconsAzure" },
+      },
+    },
+  },
 }
