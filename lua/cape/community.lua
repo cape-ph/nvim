@@ -28,7 +28,7 @@ return {
   { import = "astrocommunity.icon.mini-icons" },
 
   -- Add nvim-spectre for good search/replace
-  { import = "astrocommunity.project.nvim-spectre" },
+  { import = "astrocommunity.search.nvim-spectre" },
 
   -- Add vim-matchup for better % motion
   { import = "astrocommunity.motion.vim-matchup" },
