@@ -4,7 +4,7 @@ return {
     "conform.nvim",
     opts = {
       formatters_by_ft = {
-        ["*"] = { "injected" },
+        ["*"] = function(bufnr) return require("astrocore.buffer").is_valid(bufnr) and { "injected" } or {} end,
       },
     },
   },
