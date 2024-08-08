@@ -16,7 +16,10 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 
   -- Add nvim-bqf to improve the quickfix menu
-  { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.quickfix.nvim-bqf" },
+
+  -- Add quicker.nvim to make quickfix editable
+  { import = "astrocommunity.quickfix.quicker-nvim" },
 
   -- Add vim-sandwich operator for manipulating surrounding characters
   { import = "astrocommunity.syntax.vim-sandwich" },

@@ -1,6 +1,13 @@
 ---@type LazySpec
 return {
   {
+    "nvim-bqf",
+    opts = {
+      preview = { auto_preview = false }, -- disable auto preview in quickfix
+      func_map = { split = "-", vsplit = "|" }, -- remap split creation
+    },
+  },
+  {
     "conform.nvim",
     opts = {
       formatters_by_ft = {
