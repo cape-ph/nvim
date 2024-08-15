@@ -10,6 +10,9 @@ return {
       ensure_installed = {
         "yaml",
       },
+      indent = {
+        disable = { "yaml" },
+      },
     },
   },
   { -- Tools to be installed
