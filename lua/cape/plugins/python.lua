@@ -77,11 +77,7 @@ return {
           settings = {
             python = {
               analysis = {
-                diagnosticSeverityOverrides = {
-                  reportUnusedImport = "information",
-                  reportUnusedFunction = "information",
-                  reportUnusedVariable = "information",
-                },
+                typeCheckingMode = "basic",
               },
             },
           },
