@@ -11,7 +11,10 @@ return {
     "conform.nvim",
     opts = {
       formatters_by_ft = {
-        ["*"] = function(bufnr) return require("astrocore.buffer").is_valid(bufnr) and { "injected" } or {} end,
+        ["*"] = function(bufnr)
+          local buf_utils = require "astrocore.buffer"
+          return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
+        end,
       },
     },
   },
