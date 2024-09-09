@@ -38,12 +38,10 @@ return {
     "astrocore",
     opts = function(_, opts)
       opts.mappings.n["<Leader>ff"][1] = function()
-        -- search all git files if in git root
-        if vim.tbl_get((vim.uv or vim.loop).fs_stat ".git" or {}, "type") == "directory" then
-          require("telescope.builtin").git_files()
-        else -- if not in git root then search that folder specifically
-          require("telescope.builtin").find_files()
-        end
+        require("telescope.builtin").find_files {
+          -- search all files if in git root
+          hidden = vim.tbl_get((vim.uv or vim.loop).fs_stat ".git" or {}, "type") == "directory",
+        }
       end
 
       -- add line text object
