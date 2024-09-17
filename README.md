@@ -4,7 +4,7 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
 
 ## ⚡ Requirements
 
-- [Neovim v0.9.5+](https://neovim.io/)
+- [Neovim v0.10+](https://neovim.io/)
 - [Git v2.19.0+](https://git-scm.com/)
 - A C compiler in your path and `libstdc++` installed (Ex. `gcc`, `clang`, `zig`, [Windows users please read this!](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support))
 - [A Nerd Font](https://www.nerdfonts.com/)
