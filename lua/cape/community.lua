@@ -3,9 +3,6 @@ return {
   -- Add AstroNvim Community Marketplace
   "AstroNvim/astrocommunity",
 
-  -- Add Mason Tool Installer and initialize an empty ensure_installed list
-  { import = "astrocommunity.utility.mason-tool-installer-nvim" },
-
   -- Add conform.nvim for more stable formatting
   { import = "astrocommunity.editing-support.conform-nvim" },
 
@@ -23,12 +20,6 @@ return {
 
   -- Add vim-sandwich operator for manipulating surrounding characters
   { import = "astrocommunity.syntax.vim-sandwich" },
-
-  -- Add nvim-highlight-colors for better color highlighting
-  { import = "astrocommunity.color.nvim-highlight-colors" },
-
-  -- Add mini.icons for better icon support
-  { import = "astrocommunity.icon.mini-icons" },
 
   -- Add vim-matchup for better % motion
   { import = "astrocommunity.motion.vim-matchup" },
