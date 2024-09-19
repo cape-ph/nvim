@@ -30,9 +30,6 @@ return {
   -- Add mini.icons for better icon support
   { import = "astrocommunity.icon.mini-icons" },
 
-  -- Add nvim-spectre for good search/replace
-  { import = "astrocommunity.search.nvim-spectre" },
-
   -- Add vim-matchup for better % motion
   { import = "astrocommunity.motion.vim-matchup" },
 
@@ -62,4 +59,7 @@ return {
 
   -- Add oil.nvim for more vim-like file management
   { import = "astrocommunity.file-explorer.oil-nvim" },
+
+  -- Add grug-far.nvim for good search/replace
+  { import = "astrocommunity.search.grug-far-nvim" },
 }

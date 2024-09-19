@@ -72,7 +72,25 @@ return {
     end,
   },
   -- disable netrw hijacking of neo-tree
-  { "neo-tree.nvim", opts = { filesystem = { hijack_netrw_behavior = "disabled" } } },
+  {
+    "neo-tree.nvim",
+    opts = {
+      filesystem = {
+        hijack_netrw_behavior = "disabled",
+      },
+      window = {
+        mappings = {
+          -- better split creation bindings
+          ["\\"] = "open_split",
+          ["|"] = "open_vsplit",
+          -- better search and replace binding
+          s = "noop",
+          gS = "noop",
+          S = "grug_far_replace",
+        },
+      },
+    },
+  },
   -- setup oil file manager
   {
     "oil.nvim",
@@ -113,7 +131,7 @@ return {
         },
       },
     },
-    opts = function()
+    opts = function(_, opts)
       local get_icon, cmd = require("astroui").get_icon, require("astrocore").cmd
 
       -- git status cache
@@ -152,8 +170,12 @@ return {
       }
       local simple, detailed = { columns.icon }, { columns.permissions, columns.size, columns.mtime, columns.icon }
 
+      -- improve search/replace mappings
+      opts.keymaps.S = opts.keymaps.gS
+      opts.keymaps.gS = nil
+
       ---@type oil.setupOpts
-      return {
+      return require("astrocore").extend_tbl(opts, {
         columns = simple,
         skip_confirm_for_simple_edits = true,
         watch_for_changes = true,
@@ -184,7 +206,7 @@ return {
           end,
           is_always_hidden = function(name) return name == ".." end,
         },
-      }
+      })
     end,
   },
   -- set up header
