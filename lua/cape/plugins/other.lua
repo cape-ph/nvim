@@ -75,6 +75,9 @@ return {
   {
     "neo-tree.nvim",
     opts = {
+      default_component_configs = {
+        indent = { with_expanders = true },
+      },
       filesystem = {
         hijack_netrw_behavior = "disabled",
       },
