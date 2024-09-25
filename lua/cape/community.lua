@@ -59,4 +59,7 @@ return {
 
   -- Add grug-far.nvim for good search/replace
   { import = "astrocommunity.search.grug-far-nvim" },
+
+  -- Cache colorscheme selection
+  { import = "astrocommunity.recipes.cache-colorscheme" },
 }
