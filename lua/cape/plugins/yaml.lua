@@ -20,7 +20,6 @@ return {
     opts = {
       ensure_installed = {
         "yaml-language-server",
-        "prettier",
       },
     },
   },

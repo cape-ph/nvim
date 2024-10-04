@@ -23,6 +23,7 @@ return {
     opts = {
       ensure_installed = {
         "tree-sitter-cli", -- tree-sitter-cli for installing parsers automatically
+        "prettier", -- very general code formatter
       },
     },
   },
