@@ -45,6 +45,9 @@ return {
   -- Add oversser for code execution
   { import = "astrocommunity.code-runner.overseer-nvim" },
 
+  -- Use more performant `nvim-cmp` fork
+  { import = "astrocommunity.completion.magazine-nvim" },
+
   -- Add git commit completion when editing commit messages
   { import = "astrocommunity.completion.cmp-git" },
 
