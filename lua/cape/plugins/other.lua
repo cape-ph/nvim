@@ -291,6 +291,8 @@ return {
       )
     end,
   },
+  -- use `nvim-cmp` fork for better performance
+  { "nvim-cmp", url = "https://github.com/iguanacucumber/magazine.nvim.git", commit = false },
   -- disabled plugins
   { "indent-blankline.nvim", enabled = false }, -- indentation levels
   { "better-escape.nvim", enabled = false }, -- disable `jk` and `jj` for escape
