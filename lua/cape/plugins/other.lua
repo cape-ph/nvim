@@ -35,9 +35,16 @@ return {
       },
     },
   },
-  { -- add some sane missing text objects
+  {
     "astrocore",
     opts = function(_, opts)
+      -- set more default options
+      local lvim = opts.options
+      lvim.opt.list = true
+      lvim.opt.listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" }
+      lvim.opt.showbreak = "↪ "
+
+      -- by default only search through git files if in git directory
       opts.mappings.n["<Leader>ff"][1] = function()
         require("telescope.builtin").find_files {
           -- search all files if in git root
