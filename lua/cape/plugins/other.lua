@@ -79,6 +79,53 @@ return {
       end
     end,
   },
+  -- improve completion defaults
+  {
+    "nvim-cmp",
+    opts = function(_, opts)
+      local astrocore, astroui = require "astrocore", require "astroui"
+
+      local truncate = function(str, len)
+        if not str then return end
+        local truncated = vim.fn.strcharpart(str, 0, len)
+        return truncated == str and str or truncated .. astroui.get_icon "Ellipsis"
+      end
+
+      if not opts.formatting then opts.formatting = {} end
+      opts.formatting.format = astrocore.patch_func(opts.formatting.format, function(format, ...)
+        local vim_item = format(...)
+
+        vim_item.abbr = truncate(vim_item.abbr, math.floor(0.25 * vim.o.columns))
+        vim_item.menu = truncate(vim_item.menu, math.floor(0.25 * vim.o.columns))
+
+        return vim_item
+      end)
+
+      if not opts.sorting then opts.sorting = {} end
+      local compare = require "cmp.config.compare"
+      opts.sorting.comparators = {
+        compare.offset,
+        compare.exact,
+        compare.score,
+        compare.recently_used,
+        function(entry1, entry2)
+          local _, entry1_under = entry1.completion_item.label:find "^_+"
+          local _, entry2_under = entry2.completion_item.label:find "^_+"
+          entry1_under = entry1_under or 0
+          entry2_under = entry2_under or 0
+          if entry1_under > entry2_under then
+            return false
+          elseif entry1_under < entry2_under then
+            return true
+          end
+        end,
+        compare.kind,
+        compare.sort_text,
+        compare.length,
+        compare.order,
+      }
+    end,
+  },
   -- disable netrw hijacking of neo-tree
   {
     "neo-tree.nvim",
