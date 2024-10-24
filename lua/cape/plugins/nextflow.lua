@@ -13,7 +13,7 @@ return {
     } } },
   },
   { "nextflow-io/vim-language-nextflow", ft = "nextflow" },
-  { -- icons
+  { -- Icons
     "echasnovski/mini.icons",
     optional = true,
     opts = {

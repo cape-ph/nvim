@@ -31,8 +31,7 @@ return {
       },
     },
   },
-  -- icons
-  {
+  { -- Icons
     "mini.icons",
     opts = {
       filetype = {
