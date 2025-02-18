@@ -1,6 +1,13 @@
 ---@type LazySpec
 return {
   {
+    "mason.nvim",
+    opts = {
+      -- add AstroNvim Mason registry
+      registries = { "github:AstroNvim/mason-registry" },
+    },
+  },
+  {
     "nvim-bqf",
     opts = {
       preview = { auto_preview = false }, -- disable auto preview in quickfix
@@ -45,14 +52,6 @@ return {
       lvim.opt.list = true
       lvim.opt.listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" }
       lvim.opt.showbreak = "↪ "
-
-      -- by default only search through git files if in git directory
-      opts.mappings.n["<Leader>ff"][1] = function()
-        require("telescope.builtin").find_files {
-          -- search all files if in git root
-          hidden = vim.tbl_get((vim.uv or vim.loop).fs_stat ".git" or {}, "type") == "directory",
-        }
-      end
 
       -- add line text object
       for lhs, rhs in pairs {
@@ -269,29 +268,29 @@ return {
       })
     end,
   },
-  -- set up header
   {
-    "alpha-nvim",
-    opts = function(_, opts)
-      opts.section.header.val = {
-        " ██████  █████  ██████  ███████",
-        "██      ██   ██ ██   ██ ██",
-        "██      ███████ ██████  █████",
-        "██      ██   ██ ██      ██",
-        " ██████ ██   ██ ██      ███████",
-        " ",
-        "███    ██ ██    ██ ██ ███    ███",
-        "████   ██ ██    ██ ██ ████  ████",
-        "██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "██   ████   ████   ██ ██      ██",
-      }
-      local leader = ({ [""] = "\\", [" "] = "<Space>" })[vim.g.mapleader] or vim.g.mapleader or "\\"
-      opts.section.footer.val = { "When in doubt, press " .. leader }
-    end,
-    config = function(_, opts) require("alpha").setup(opts.config) end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            " ██████  █████  ██████  ███████",
+            "██      ██   ██ ██   ██ ██     ",
+            "██      ███████ ██████  █████  ",
+            "██      ██   ██ ██      ██     ",
+            " ██████ ██   ██ ██      ███████",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
+        },
+      },
+      indent = { enabled = false },
+    },
   },
-  -- setup custom left only mode text indicator
   {
     "astroui",
     ---@type AstroUIOpts
@@ -348,7 +347,6 @@ return {
     end,
   },
   -- disabled plugins
-  { "indent-blankline.nvim", enabled = false }, -- indentation levels
   { "better-escape.nvim", enabled = false }, -- disable `jk` and `jj` for escape
   { "none-ls.nvim", enabled = false }, -- replaced with conform and nvim-lint
   { "mason-null-ls.nvim", enabled = false }, -- no longer needed

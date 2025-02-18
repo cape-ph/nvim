@@ -27,9 +27,6 @@ return {
   -- Add neogen for docstring generation
   { import = "astrocommunity.editing-support.neogen" },
 
-  -- Add indent-tools.nvim for indent text object
-  { import = "astrocommunity.indent.indent-tools-nvim" },
-
   -- Add neotest for more unit testing
   { import = "astrocommunity.test.neotest" },
 
