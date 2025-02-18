@@ -3,6 +3,9 @@ return {
   -- Add AstroNvim Community Marketplace
   "AstroNvim/astrocommunity",
 
+  -- Add blink.cmp for faster completion
+  { import = "astrocommunity.completion.blink-cmp" },
+
   -- Add conform.nvim for more stable formatting
   { import = "astrocommunity.editing-support.conform-nvim" },
 

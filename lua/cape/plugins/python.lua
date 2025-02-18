@@ -43,8 +43,11 @@ return {
     end,
   },
   { -- Tool to change virtual environments
-    "linux-cultist/venv-selector.nvim",
-    branch = "regexp",
+    -- "linux-cultist/venv-selector.nvim",
+    -- branch = "regexp",
+    -- TODO: revert after merge: https://github.com/linux-cultist/venv-selector.nvim/pull/188
+    "stefanboca/venv-selector.nvim",
+    branch = "sb/push-rlpxsqmllxtz",
     cmd = "VenvSelect",
     dependencies = {
       {
@@ -62,6 +65,7 @@ return {
       name = { "env", ".env", "venv", ".venv" },
       notify_user_on_activate = false,
       parents = 0,
+      picker = "native",
     },
   },
   {
