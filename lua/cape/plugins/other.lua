@@ -299,6 +299,18 @@ return {
       )
     end,
   },
+  -- disable default mini.snippets mappings
+  {
+    "mini.snippets",
+    opts = {
+      mappings = {
+        expand = "",
+        jump_next = "",
+        jump_prev = "",
+        stop = "",
+      },
+    },
+  },
   -- disabled plugins
   { "better-escape.nvim", enabled = false }, -- disable `jk` and `jj` for escape
   { "none-ls.nvim", enabled = false }, -- replaced with conform and nvim-lint

@@ -6,6 +6,9 @@ return {
   -- Add blink.cmp for faster completion
   { import = "astrocommunity.completion.blink-cmp" },
 
+  -- Add mini.snippets for minimal snippets
+  { import = "astrocommunity.snippet.mini-snippets" },
+
   -- Add conform.nvim for more stable formatting
   { import = "astrocommunity.editing-support.conform-nvim" },
 
