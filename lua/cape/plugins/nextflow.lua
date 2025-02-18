@@ -16,19 +16,31 @@ return {
     "nextflow-io/vim-language-nextflow",
     ft = "nextflow",
   },
-  { -- Snippets
-    "L3MON4D3/LuaSnip",
-    optional = true,
-    specs = {
-      "nextflow-io/vscode-language-nextflow",
-      commit = "efc410e46db3518ec7693668e159fb7b148a0e1a",
-      ft = "nextflow",
-      dependencies = { "L3MON4D3/LuaSnip" },
-      config = function(plugin)
-        require("luasnip.loaders.from_vscode").lazy_load {
-          paths = { plugin.dir },
-        }
-      end,
+  { -- Tools to be installed
+    "mason-tool-installer.nvim",
+    opts = function(_, opts)
+      if vim.fn.executable "java" == 1 then
+        vim.list_extend(opts.ensure_installed, {
+          "nextflow-language-server",
+        })
+      end
+    end,
+  },
+  { -- add nextflow_ls to mason-lspconfig
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
+    opts = {
+      mason_lspconfig = {
+        servers = {
+          nextflow_ls = {
+            package = "nextflow-language-server",
+            filetypes = { "nextflow" },
+            config = {
+              cmd = { "nextflow-language-server" },
+            },
+          },
+        },
+      },
     },
   },
   { -- Icons
