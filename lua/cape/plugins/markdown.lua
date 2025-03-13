@@ -16,11 +16,11 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "marksman",
-      },
-    },
+      })
+    end,
   },
   { -- Formatters to use
     "conform.nvim",

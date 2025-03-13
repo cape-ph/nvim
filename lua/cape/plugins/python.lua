@@ -15,14 +15,16 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
-        "pyright",
-        "black",
-        "isort",
-        "debugpy",
-      },
-    },
+    opts = function(_, opts)
+      if vim.fn.executable "pip" == 1 then
+        vim.list_extend(opts.ensure_installed, {
+          "pyright",
+          "black",
+          "isort",
+          "debugpy",
+        })
+      end
+    end,
   },
   { -- Formatters to use
     "conform.nvim",

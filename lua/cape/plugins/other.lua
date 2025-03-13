@@ -20,12 +20,14 @@ return {
   },
   {
     "mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
-        "tree-sitter-cli", -- tree-sitter-cli for installing parsers automatically
-        "prettier", -- very general code formatter
-      },
-    },
+    opts = function(_, opts)
+      if vim.fn.executable "npm" == 1 then vim.list_extend(opts.ensure_installed, {
+        "prettier",
+      }) end
+      vim.list_extend(opts.ensure_installed, {
+        "tree-sitter-cli",
+      })
+    end,
   },
   {
     "astrolsp",

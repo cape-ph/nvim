@@ -15,11 +15,11 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      if vim.fn.executable "npm" == 1 then vim.list_extend(opts.ensure_installed, {
         "json-lsp",
-      },
-    },
+      }) end
+    end,
   },
   { -- Formatters to use
     "conform.nvim",
