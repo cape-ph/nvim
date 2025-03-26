@@ -16,6 +16,7 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
   - [`go`](https://go.dev/) - `regols`
   - [`cargo`](https://doc.rust-lang.org/cargo/) - `jinja-lsp`
   - [`opa`](https://www.openpolicyagent.org/) - `opa_check`
+  - [`java` (17+)](https://www.java.com/en/) - `nextflow-language-server`
 
 [^1]: Note when using default theme: For MacOS, the default terminal does not have true color support. You will need to use [iTerm2](https://iterm2.com/), [Kitty](https://sw.kovidgoyal.net/kitty/), [WezTerm](https://wezfurlong.org/wezterm/), or another [terminal emulator](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices) that has true color support.
 
