@@ -3,9 +3,6 @@ return {
   -- Add AstroNvim Community Marketplace
   "AstroNvim/astrocommunity",
 
-  -- Add blink.cmp for faster completion
-  { import = "astrocommunity.completion.blink-cmp" },
-
   -- Add mini.snippets for minimal snippets
   { import = "astrocommunity.snippet.mini-snippets" },
 
@@ -38,9 +35,6 @@ return {
 
   -- Add oversser for code execution
   { import = "astrocommunity.code-runner.overseer-nvim" },
-
-  -- Add git commit completion when editing commit messages
-  { import = "astrocommunity.completion.cmp-git" },
 
   -- Show relative path in winbar
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
