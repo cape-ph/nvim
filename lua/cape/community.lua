@@ -3,8 +3,8 @@ return {
   -- Add AstroNvim Community Marketplace
   "AstroNvim/astrocommunity",
 
-  -- Add Mason Tool Installer and initialize an empty ensure_installed list
-  { import = "astrocommunity.utility.mason-tool-installer-nvim" },
+  -- Add mini.snippets for minimal snippets
+  { import = "astrocommunity.snippet.mini-snippets" },
 
   -- Add conform.nvim for more stable formatting
   { import = "astrocommunity.editing-support.conform-nvim" },
@@ -24,29 +24,17 @@ return {
   -- Add vim-sandwich operator for manipulating surrounding characters
   { import = "astrocommunity.syntax.vim-sandwich" },
 
-  -- Add nvim-highlight-colors for better color highlighting
-  { import = "astrocommunity.color.nvim-highlight-colors" },
-
-  -- Add mini.icons for better icon support
-  { import = "astrocommunity.icon.mini-icons" },
-
   -- Add vim-matchup for better % motion
   { import = "astrocommunity.motion.vim-matchup" },
 
   -- Add neogen for docstring generation
   { import = "astrocommunity.editing-support.neogen" },
 
-  -- Add indent-tools.nvim for indent text object
-  { import = "astrocommunity.indent.indent-tools-nvim" },
-
   -- Add neotest for more unit testing
   { import = "astrocommunity.test.neotest" },
 
   -- Add oversser for code execution
   { import = "astrocommunity.code-runner.overseer-nvim" },
-
-  -- Add git commit completion when editing commit messages
-  { import = "astrocommunity.completion.cmp-git" },
 
   -- Show relative path in winbar
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },

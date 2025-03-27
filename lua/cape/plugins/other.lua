@@ -1,6 +1,13 @@
 ---@type LazySpec
 return {
   {
+    "mason.nvim",
+    opts = {
+      -- add AstroNvim Mason registry
+      registries = { "github:AstroNvim/mason-registry" },
+    },
+  },
+  {
     "nvim-bqf",
     opts = {
       preview = { auto_preview = false }, -- disable auto preview in quickfix
@@ -46,14 +53,6 @@ return {
       lvim.opt.listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" }
       lvim.opt.showbreak = "↪ "
 
-      -- by default only search through git files if in git directory
-      opts.mappings.n["<Leader>ff"][1] = function()
-        require("telescope.builtin").find_files {
-          -- search all files if in git root
-          hidden = vim.tbl_get((vim.uv or vim.loop).fs_stat ".git" or {}, "type") == "directory",
-        }
-      end
-
       -- add line text object
       for lhs, rhs in pairs {
         il = { ":<C-u>normal! $v^<CR>", desc = "inside line" },
@@ -79,53 +78,6 @@ return {
           opts.mappings.x[lhs] = rhs
         end
       end
-    end,
-  },
-  -- improve completion defaults
-  {
-    "nvim-cmp",
-    opts = function(_, opts)
-      local astrocore, astroui = require "astrocore", require "astroui"
-
-      local truncate = function(str, len)
-        if not str then return end
-        local truncated = vim.fn.strcharpart(str, 0, len)
-        return truncated == str and str or truncated .. astroui.get_icon "Ellipsis"
-      end
-
-      if not opts.formatting then opts.formatting = {} end
-      opts.formatting.format = astrocore.patch_func(opts.formatting.format, function(format, ...)
-        local vim_item = format(...)
-
-        vim_item.abbr = truncate(vim_item.abbr, math.floor(0.25 * vim.o.columns))
-        vim_item.menu = truncate(vim_item.menu, math.floor(0.25 * vim.o.columns))
-
-        return vim_item
-      end)
-
-      if not opts.sorting then opts.sorting = {} end
-      local compare = require "cmp.config.compare"
-      opts.sorting.comparators = {
-        compare.offset,
-        compare.exact,
-        compare.score,
-        compare.recently_used,
-        function(entry1, entry2)
-          local _, entry1_under = entry1.completion_item.label:find "^_+"
-          local _, entry2_under = entry2.completion_item.label:find "^_+"
-          entry1_under = entry1_under or 0
-          entry2_under = entry2_under or 0
-          if entry1_under > entry2_under then
-            return false
-          elseif entry1_under < entry2_under then
-            return true
-          end
-        end,
-        compare.kind,
-        compare.sort_text,
-        compare.length,
-        compare.order,
-      }
     end,
   },
   -- disable netrw hijacking of neo-tree
@@ -269,29 +221,29 @@ return {
       })
     end,
   },
-  -- set up header
   {
-    "alpha-nvim",
-    opts = function(_, opts)
-      opts.section.header.val = {
-        " ██████  █████  ██████  ███████",
-        "██      ██   ██ ██   ██ ██",
-        "██      ███████ ██████  █████",
-        "██      ██   ██ ██      ██",
-        " ██████ ██   ██ ██      ███████",
-        " ",
-        "███    ██ ██    ██ ██ ███    ███",
-        "████   ██ ██    ██ ██ ████  ████",
-        "██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "██   ████   ████   ██ ██      ██",
-      }
-      local leader = ({ [""] = "\\", [" "] = "<Space>" })[vim.g.mapleader] or vim.g.mapleader or "\\"
-      opts.section.footer.val = { "When in doubt, press " .. leader }
-    end,
-    config = function(_, opts) require("alpha").setup(opts.config) end,
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = table.concat({
+            " ██████  █████  ██████  ███████",
+            "██      ██   ██ ██   ██ ██     ",
+            "██      ███████ ██████  █████  ",
+            "██      ██   ██ ██      ██     ",
+            " ██████ ██   ██ ██      ███████",
+            "",
+            "███    ██ ██    ██ ██ ███    ███",
+            "████   ██ ██    ██ ██ ████  ████",
+            "██ ██  ██ ██    ██ ██ ██ ████ ██",
+            "██  ██ ██  ██  ██  ██ ██  ██  ██",
+            "██   ████   ████   ██ ██      ██",
+          }, "\n"),
+        },
+      },
+      indent = { enabled = false },
+    },
   },
-  -- setup custom left only mode text indicator
   {
     "astroui",
     ---@type AstroUIOpts
@@ -347,8 +299,19 @@ return {
       )
     end,
   },
+  -- disable default mini.snippets mappings
+  {
+    "mini.snippets",
+    opts = {
+      mappings = {
+        expand = "",
+        jump_next = "",
+        jump_prev = "",
+        stop = "",
+      },
+    },
+  },
   -- disabled plugins
-  { "indent-blankline.nvim", enabled = false }, -- indentation levels
   { "better-escape.nvim", enabled = false }, -- disable `jk` and `jj` for escape
   { "none-ls.nvim", enabled = false }, -- replaced with conform and nvim-lint
   { "mason-null-ls.nvim", enabled = false }, -- no longer needed

@@ -62,6 +62,7 @@ return {
       name = { "env", ".env", "venv", ".venv" },
       notify_user_on_activate = false,
       parents = 0,
+      picker = "native",
     },
   },
   {
