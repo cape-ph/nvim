@@ -10,7 +10,7 @@ return {
     opts = {
       filetypes = {
         pattern = {
-          [".*%.pkr%.hcl"] = "hcl.packer",
+          [".*%.pkr.*%.hcl"] = "hcl.packer",
         },
       },
     },
