@@ -16,14 +16,17 @@ return {
   },
   {
     "conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        ["*"] = function(bufnr)
-          local buf_utils = require "astrocore.buffer"
-          return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
-        end,
-      },
-    },
+    opts = function(_, opts)
+      local buf_utils = require "astrocore.buffer"
+
+      if not opts.formatters_by_ft then opts.formatters_by_ft = {} end
+      opts.formatters_by_ft["*"] = function(bufnr) -- always apply injected
+        return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
+      end
+      opts.formatters_by_ft["_"] = function(bufnr) -- fallback to lsp formatter if available
+        return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { lsp_format = "last" } or {}
+      end
+    end,
   },
   {
     "mason-tool-installer.nvim",
