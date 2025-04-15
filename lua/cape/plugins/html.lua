@@ -15,15 +15,13 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable "npm" == 1 then
-        vim.list_extend(opts.ensure_installed, {
-          "html-lsp",
-          "css-lsp",
-          "tailwindcss-language-server",
-        })
-      end
-    end,
+    opts = {
+      ensure_installed = {
+        { "html-lsp", condition = function() return vim.fn.executable "npm" == 1 end },
+        { "css-lsp", condition = function() return vim.fn.executable "npm" == 1 end },
+        { "tailwindcss-language-server", condition = function() return vim.fn.executable "npm" == 1 end },
+      },
+    },
   },
   { -- Formatters to use
     "conform.nvim",

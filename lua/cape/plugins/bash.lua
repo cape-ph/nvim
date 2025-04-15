@@ -25,18 +25,15 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable "npm" == 1 then
-        vim.list_extend(opts.ensure_installed, {
-          "bash-language-server",
-          "bash-debug-adapter",
-        })
-      end
-      vim.list_extend(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
+        { "bash-language-server", condition = function() return vim.fn.executable "npm" == 1 end },
+        { "bash-debug-adapter", condition = function() return vim.fn.executable "npm" == 1 end },
+        "bash-debug-adapter",
         "shellcheck",
         "shfmt",
-      })
-    end,
+      },
+    },
   },
   { -- Formatters to use
     "conform.nvim",

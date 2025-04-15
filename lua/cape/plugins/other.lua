@@ -30,14 +30,12 @@ return {
   },
   {
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable "npm" == 1 then vim.list_extend(opts.ensure_installed, {
-        "prettier",
-      }) end
-      vim.list_extend(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
+        { "prettier", condition = function() return vim.fn.executable "npm" == 1 end },
         "tree-sitter-cli",
-      })
-    end,
+      },
+    },
   },
   {
     "astrolsp",

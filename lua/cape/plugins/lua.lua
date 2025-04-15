@@ -15,13 +15,13 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
+    opts = {
+      ensure_installed = {
         "lua-language-server",
         "stylua",
         "selene",
-      })
-    end,
+      },
+    },
   },
   { -- Formatters to use
     "conform.nvim",

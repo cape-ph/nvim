@@ -14,11 +14,11 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable "pip" == 1 then vim.list_extend(opts.ensure_installed, {
-        "sqlfluff",
-      }) end
-    end,
+    opts = {
+      ensure_installed = {
+        { "sqlfluff", condition = function() return vim.fn.executable "pip" == 1 end },
+      },
+    },
   },
   { -- Formatters to use
     "conform.nvim",

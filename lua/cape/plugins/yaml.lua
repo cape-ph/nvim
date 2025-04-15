@@ -17,13 +17,11 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable "npm" == 1 then
-        vim.list_extend(opts.ensure_installed, {
-          "yaml-language-server",
-        })
-      end
-    end,
+    opts = {
+      ensure_installed = {
+        { "yaml-language-server", condition = function() return vim.fn.executable "npm" == 1 end },
+      },
+    },
   },
   { -- Formatters to use
     "conform.nvim",

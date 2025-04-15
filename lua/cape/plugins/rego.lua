@@ -14,11 +14,11 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable "go" == 1 then vim.list_extend(opts.ensure_installed, {
-        "regols",
-      }) end
-    end,
+    opts = {
+      ensure_installed = {
+        { "regols", condition = function() return vim.fn.executable "go" == 1 end },
+      },
+    },
   },
   { -- Linters to use
     "nvim-lint",

@@ -18,13 +18,11 @@ return {
   },
   { -- Tools to be installed
     "mason-tool-installer.nvim",
-    opts = function(_, opts)
-      if vim.fn.executable "java" == 1 then
-        vim.list_extend(opts.ensure_installed, {
-          "nextflow-language-server",
-        })
-      end
-    end,
+    opts = {
+      ensure_installed = {
+        { "nextflow-language-server", condition = function() return vim.fn.executable "java" == 1 end },
+      },
+    },
   },
   { -- add nextflow_ls to mason-lspconfig
     "AstroNvim/astrolsp",
