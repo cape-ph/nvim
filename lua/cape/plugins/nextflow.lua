@@ -20,7 +20,37 @@ return {
     "mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        { "nextflow-language-server", condition = function() return vim.fn.executable "java" == 1 end },
+        {
+          "nextflow-language-server",
+          condition = function()
+            local version_output = vim.fn.executable "java" == 1
+              and require("astrocore").cmd({ "java", "-version" }, false)
+            if version_output then
+              local version = version_output:match '"([%.%d]+)"'
+              if version then
+                local version_compared, version_valid = pcall(vim.version.ge, version, "17")
+                if version_compared then
+                  return version_valid
+                else
+                  vim.notify(
+                    "Unable to validate Java version, open issue if occurs with the detected version: `"
+                      .. version
+                      .. "`",
+                    vim.log.levels.ERROR
+                  )
+                end
+              else
+                vim.notify(
+                  "Unable to identify Java version, open issue if occurs with the following information: \n```\n"
+                    .. version_output
+                    .. "\n```",
+                  vim.log.levels.ERROR
+                )
+              end
+            end
+            return false
+          end,
+        },
       },
     },
   },
