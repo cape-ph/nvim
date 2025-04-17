@@ -28,8 +28,7 @@ return {
     opts = {
       ensure_installed = {
         { "bash-language-server", condition = function() return vim.fn.executable "npm" == 1 end },
-        { "bash-debug-adapter", condition = function() return vim.fn.executable "npm" == 1 end },
-        "bash-debug-adapter",
+        { "bash-debug-adapter", condition = function() return vim.fn.executable "node" == 1 end },
         "shellcheck",
         "shfmt",
       },
