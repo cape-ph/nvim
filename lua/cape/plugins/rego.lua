@@ -16,8 +16,15 @@ return {
     "mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        "regal",
         "opa",
+      },
+    },
+  },
+  { -- Formatters to use
+    "conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        rego = { "opa_fmt" },
       },
     },
   },
