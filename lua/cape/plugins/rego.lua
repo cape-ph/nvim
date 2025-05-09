@@ -16,7 +16,8 @@ return {
     "mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        { "regols", condition = function() return vim.fn.executable "go" == 1 end },
+        "regal",
+        "opa",
       },
     },
   },
