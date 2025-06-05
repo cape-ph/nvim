@@ -1,13 +1,6 @@
 ---@type LazySpec
 return {
   {
-    "mason.nvim",
-    opts = {
-      -- add AstroNvim Mason registry
-      registries = { "github:AstroNvim/mason-registry" },
-    },
-  },
-  {
     "nvim-bqf",
     opts = {
       preview = { auto_preview = false }, -- disable auto preview in quickfix
@@ -49,7 +42,7 @@ return {
     "astrolsp",
     opts = {
       config = {
-        typos_lsp = { single_file_support = false },
+        typos_lsp = { workspace_requires = true },
       },
     },
   },

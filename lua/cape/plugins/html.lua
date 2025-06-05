@@ -39,7 +39,6 @@ return {
     "astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      ---@diagnostic disable: missing-fields
       config = {
         cssls = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
       },
