@@ -54,23 +54,6 @@ return {
       },
     },
   },
-  { -- add nextflow_ls to mason-lspconfig
-    "AstroNvim/astrolsp",
-    ---@type AstroLSPOpts
-    opts = {
-      mason_lspconfig = {
-        servers = {
-          nextflow_ls = {
-            package = "nextflow-language-server",
-            filetypes = { "nextflow" },
-            config = {
-              cmd = { "nextflow-language-server" },
-            },
-          },
-        },
-      },
-    },
-  },
   { -- Icons
     "echasnovski/mini.icons",
     optional = true,
