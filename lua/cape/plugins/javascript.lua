@@ -85,7 +85,6 @@ return {
     "astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      ---@diagnostic disable: missing-fields
       config = {
         vtsls = {
           settings = {

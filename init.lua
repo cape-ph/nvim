@@ -8,7 +8,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup {
   -- Add AstroNvim and import the plugins it provides
-  { "AstroNvim/AstroNvim", version = "^5", import = "astronvim.plugins" },
+  { "AstroNvim/AstroNvim", branch = "astrolsp_v4", import = "astronvim.plugins" },
+  { "AstroNvim/astrolsp", branch = "v4" },
   -- Load AstroNvim community marketplace plugins before user plugins
   { import = "cape.community" },
   -- Load CAPE plugins last
