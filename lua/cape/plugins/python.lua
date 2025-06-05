@@ -67,7 +67,6 @@ return {
     "astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      ---@diagnostic disable: missing-fields
       config = {
         pyright = {
           before_init = function(_, c)
