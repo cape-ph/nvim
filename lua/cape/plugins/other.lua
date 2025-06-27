@@ -26,6 +26,14 @@ return {
       opts.formatters_by_ft["_"] = function(bufnr) -- fallback to lsp formatter if available
         return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { lsp_format = "last" } or {}
       end
+
+      local original_format_on_save = opts.format_on_save
+      opts.format_on_save = function(bufnr)
+        local out = original_format_on_save
+        if type(out) == "function" then out = original_format_on_save(bufnr) end
+        if type(out) == "table" then out.timeout_ms = 3000 end
+        return out
+      end
     end,
   },
   {
