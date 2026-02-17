@@ -34,7 +34,6 @@ return {
     opts = {
       ensure_installed = {
         { "prettier", condition = function() return vim.fn.executable "npm" == 1 end },
-        "tree-sitter-cli",
       },
     },
   },

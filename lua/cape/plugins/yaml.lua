@@ -5,13 +5,14 @@
 ---@type LazySpec
 return {
   { -- Treesitter parsers to be installed
-    "nvim-treesitter",
+    "astrocore",
+    ---@type AstroCoreOpts
     opts = {
-      ensure_installed = {
-        "yaml",
-      },
-      indent = {
-        disable = { "yaml" },
+      treesitter = {
+        indent = function(lang) return lang ~= "yaml" end,
+        ensure_installed = {
+          "yaml",
+        },
       },
     },
   },

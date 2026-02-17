@@ -4,8 +4,9 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
 
 ## ⚡ Requirements
 
-- [Neovim v0.10+](https://neovim.io/)
+- [Neovim v0.11+](https://neovim.io/)
 - [Git v2.19.0+](https://git-scm.com/)
+- [Tree-sitter CLI](https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md) (_Note:_ If not installed, this will be auto-installed with Mason if available)
 - A C compiler in your path and `libstdc++` installed (Ex. `gcc`, `clang`, `zig`, [Windows users please read this!](https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support))
 - [A Nerd Font](https://www.nerdfonts.com/)
 - [A Terminal with true color support](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices)[^1]

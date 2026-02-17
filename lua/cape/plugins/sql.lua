@@ -5,11 +5,12 @@
 ---@type LazySpec
 return {
   { -- Treesitter parsers to be installed
-    "nvim-treesitter",
+    "astrocore",
+    ---@type AstroCoreOpts
     opts = {
-      ensure_installed = {
+      treesitter = { ensure_installed = {
         "sql",
-      },
+      } },
     },
   },
   { -- Tools to be installed

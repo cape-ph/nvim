@@ -10,6 +10,8 @@ require("lazy").setup {
   -- Add AstroNvim and import the plugins it provides
   { "AstroNvim/AstroNvim", branch = "v6", import = "astronvim.plugins" },
   { "AstroNvim/astrolsp", branch = "v4" },
+  { "AstroNvim/astrocore", branch = "v3" },
+  { "AstroNvim/astroui", branch = "v4" },
   -- Load AstroNvim community marketplace plugins before user plugins
   { import = "cape.community" },
   -- Load CAPE plugins last
