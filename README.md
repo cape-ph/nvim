@@ -11,8 +11,8 @@ A Neovim configuration based on the [AstroNvim](https://astronvim.com/) distribu
 - [A Terminal with true color support](https://github.com/termstandard/colors?tab=readme-ov-file#truecolor-support-in-output-devices)[^1]
 - Requirements to install tools (must be in `$PATH`, if a dependency is not available then the tools will not be installed):
   - [`curl`](https://curl.se/) - Used by Mason in general to download files
-  - [`pip`](https://pip.pypa.io/en/stable/) - `isort`, `black`, `pyright`, `debugpy`, `sqlfluff`
-  - [`npm`](https://www.npmjs.com/) - `prettier`, `json-language-server`, `yaml-language-server`, `bash-language-server`
+  - [`pip`](https://pip.pypa.io/en/stable/) - `isort`, `black`, `debugpy`, `sqlfluff`
+  - [`npm`](https://www.npmjs.com/) - `pyright`, `prettier`, `json-language-server`, `yaml-language-server`, `bash-language-server`
   - [`go`](https://go.dev/) - `regols`
   - [`cargo`](https://doc.rust-lang.org/cargo/) - `jinja-lsp`
   - [`opa`](https://www.openpolicyagent.org/) - `opa_check`

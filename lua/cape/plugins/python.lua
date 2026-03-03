@@ -17,7 +17,7 @@ return {
     "mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
-        { "pyright", condition = function() return vim.fn.executable "pip" == 1 end },
+        { "pyright", condition = function() return vim.fn.executable "npm" == 1 end },
         { "black", condition = function() return vim.fn.executable "pip" == 1 end },
         { "isort", condition = function() return vim.fn.executable "pip" == 1 end },
         { "debugpy", condition = function() return vim.fn.executable "pip" == 1 end },
