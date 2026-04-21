@@ -43,6 +43,9 @@ return {
       config = {
         typos_lsp = { workspace_requires = true },
       },
+      features = {
+        codelens = false,
+      },
     },
   },
   {
