@@ -5,11 +5,12 @@
 ---@type LazySpec
 return {
   { -- Treesitter parsers to be installed
-    "nvim-treesitter",
+    "astrocore",
+    ---@type AstroCoreOpts
     opts = {
-      ensure_installed = {
+      treesitter = { ensure_installed = {
         "svelte",
-      },
+      } },
     },
   },
   { -- Tools to be installed
@@ -36,7 +37,6 @@ return {
     "astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      ---@diagnostic disable: missing-fields
       config = {
         svelte = {
           settings = {

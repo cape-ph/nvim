@@ -5,12 +5,13 @@
 ---@type LazySpec
 return {
   { -- Treesitter parsers to be installed
-    "nvim-treesitter",
+    "astrocore",
+    ---@type AstroCoreOpts
     opts = {
-      ensure_installed = {
+      treesitter = { ensure_installed = {
         "html",
         "css",
-      },
+      } },
     },
   },
   { -- Tools to be installed
@@ -39,7 +40,6 @@ return {
     "astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      ---@diagnostic disable: missing-fields
       config = {
         cssls = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
       },

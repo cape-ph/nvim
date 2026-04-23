@@ -5,13 +5,16 @@
 ---@type LazySpec
 return {
   { -- Treesitter parsers to be installed
-    "nvim-treesitter",
+    "astrocore",
+    ---@type AstroCoreOpts
     opts = {
-      ensure_installed = {
-        "javascript",
-        "typescript",
-        "tsx",
-        "jsdoc",
+      treesitter = {
+        ensure_installed = {
+          "javascript",
+          "typescript",
+          "tsx",
+          "jsdoc",
+        },
       },
     },
   },
@@ -85,7 +88,6 @@ return {
     "astrolsp",
     ---@type AstroLSPOpts
     opts = {
-      ---@diagnostic disable: missing-fields
       config = {
         vtsls = {
           settings = {

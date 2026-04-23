@@ -4,23 +4,16 @@
 
 ---@type LazySpec
 return {
-  {
+  { -- Treesitter parsers to be installed and filetypes
     "astrocore",
     ---@type AstroCoreOpts
     opts = {
-      filetypes = {
-        pattern = {
-          [".*%.pkr.*%.hcl"] = "hcl.packer",
-        },
-      },
-    },
-  },
-  { -- Treesitter parsers to be installed
-    "nvim-treesitter",
-    opts = {
-      ensure_installed = {
+      filetypes = { pattern = {
+        [".*%.pkr.*%.hcl"] = "hcl.packer",
+      } },
+      treesitter = { ensure_installed = {
         "hcl",
-      },
+      } },
     },
   },
   { -- Linters to use

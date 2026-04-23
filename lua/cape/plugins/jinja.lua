@@ -4,22 +4,19 @@
 
 ---@type LazySpec
 return {
-  { -- Set up filetypes
+  { -- Treesitter parsers to be installed and filetypes
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
-    opts = { filetypes = { extension = {
-      j2 = "jinja",
-      jinja2 = "jinja",
-      jinja = "jinja",
-    } } },
-  },
-  { -- Treesitter parsers to be installed
-    "nvim-treesitter",
     opts = {
-      ensure_installed = {
+      filetypes = { extension = {
+        j2 = "jinja",
+        jinja2 = "jinja",
+        jinja = "jinja",
+      } },
+      treesitter = { ensure_installed = {
         "jinja",
         "jinja_inline",
-      },
+      } },
     },
   },
   { -- Tools to be installed

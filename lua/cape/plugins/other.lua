@@ -1,13 +1,6 @@
 ---@type LazySpec
 return {
   {
-    "mason.nvim",
-    opts = {
-      -- add AstroNvim Mason registry
-      registries = { "github:AstroNvim/mason-registry" },
-    },
-  },
-  {
     "nvim-bqf",
     opts = {
       preview = { auto_preview = false }, -- disable auto preview in quickfix
@@ -41,7 +34,6 @@ return {
     opts = {
       ensure_installed = {
         { "prettier", condition = function() return vim.fn.executable "npm" == 1 end },
-        "tree-sitter-cli",
       },
     },
   },
@@ -49,7 +41,10 @@ return {
     "astrolsp",
     opts = {
       config = {
-        typos_lsp = { single_file_support = false },
+        typos_lsp = { workspace_requires = true },
+      },
+      features = {
+        codelens = false,
       },
     },
   },

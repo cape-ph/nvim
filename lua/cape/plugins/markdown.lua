@@ -5,13 +5,17 @@
 
 ---@type LazySpec
 return {
-  { -- Treesitter parsers to be installed
-    "nvim-treesitter",
+  { -- Treesitter parsers to be installed and filetypes
+    "astrocore",
+    ---@type AstroCoreOpts
     opts = {
-      ensure_installed = {
+      filetypes = { extensions = {
+        qmd = "markdown",
+      } },
+      treesitter = { ensure_installed = {
         "markdown",
         "markdown_inline",
-      },
+      } },
     },
   },
   { -- Tools to be installed
@@ -33,17 +37,6 @@ return {
           options = {
             ft_parsers = { markdown = "markdown" },
           },
-        },
-      },
-    },
-  },
-  {
-    "astrocore",
-    ---@type AstroCoreOpts
-    opts = {
-      filetypes = {
-        extensions = {
-          qmd = "markdown",
         },
       },
     },
